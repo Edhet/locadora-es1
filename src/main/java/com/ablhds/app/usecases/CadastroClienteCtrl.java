@@ -1,8 +1,7 @@
 package com.ablhds.app.usecases;
 
-import com.ablhds.app.domain.Cliente;
-import com.ablhds.app.domain.ClienteRepository;
 import com.ablhds.app.domain.ClienteBuilder;
+import com.ablhds.app.domain.ClienteRepository;
 import com.ablhds.app.domain.Erro;
 
 import java.sql.SQLException;
