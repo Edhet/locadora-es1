@@ -21,4 +21,6 @@ public enum Erro {
     ENDERECO_INVALIDO,
     TELEFONE_INVALIDO,
     ERRO_BD
+
+    //TODO - Criar mais erros
 }
