@@ -15,3 +15,20 @@ CREATE TABLE clientes (
 );
 
 -- TODO: Criar veículo e locação
+CREATE TABLE veiculo (
+    id varchar (36) PRIMARY KEY,
+    placa varchar(7) NOT NULL,
+    modelo varchar(30) NOT NULL,
+    ano integer NOT NULL,
+    diaria double NOT NULL,
+    quilometragem integer NOT NULL
+);
+
+CREATE TABLE locacao(
+    id varchar (36) PRIMARY KEY,
+    cpf long NOT NULL UNIQUE,
+    nome varchar (80) NOT NULL,
+    placa varchar(7) NOT NULL,
+    modelo varchar(30) NOT NULL,
+    data_hora datetime NOT NULL
+);
