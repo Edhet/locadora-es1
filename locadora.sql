@@ -13,3 +13,5 @@ CREATE TABLE clientes (
 	ddd 		integer 		NOT NULL, 
 	telefone 	integer 		NOT NULL
 );
+
+-- TODO: Criar veículo e locação
