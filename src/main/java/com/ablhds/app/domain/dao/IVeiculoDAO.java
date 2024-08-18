@@ -1,4 +1,4 @@
 package com.ablhds.app.domain.dao;
 
-public interface VeiculoDAO {
+public interface IVeiculoDAO {
 }
