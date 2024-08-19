@@ -26,7 +26,7 @@ public class IncluirVeiculoCtrl {
             if (resultado.sucesso()) {
                 var veiculo = resultado.valor;
 
-                var outroVeiculo = repo.findByPlaca(veiculo.getPlaca().valor);
+                var outroVeiculo = repo.findByPlaca(veiculo.getPlaca().placa);
 
                 if (outroVeiculo != null) {
                     return List.of(Erro.VEICULO_PLACA_DUPLICADA);
