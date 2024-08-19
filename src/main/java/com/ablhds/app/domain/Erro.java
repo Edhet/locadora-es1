@@ -30,5 +30,5 @@ public enum Erro {
     VEICULO_DIARIA_INVALIDA,
     VEICULO_QUILOMETRAGEM_INVALIDA
 
-    //TODO - Criar mais erros
+    //TODO - Criar mais erros para locação
 }
