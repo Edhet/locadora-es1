@@ -31,12 +31,13 @@ public class VeiculoDAO implements IVeiculoDAO {
         try (var conn = DBConnection.get();
             var stmt = conn.prepareStatement("update veiculo set placa=?, modelo=?, ano=?, diaria=?, quilometragem=? where id=?")) {
 
-            stmt.setString(1, veiculo.getId());
-            stmt.setString(2, veiculo.getPlaca().placa);
-            stmt.setString(3, veiculo.getModelo());
-            stmt.setInt(4, veiculo.getAno());
-            stmt.setDouble(5, veiculo.getDiaria());
-            stmt.setInt(6, veiculo.getQuilometragem());
+            stmt.setString(1, veiculo.getPlaca().placa);
+            stmt.setString(2, veiculo.getModelo());
+            stmt.setInt(3, veiculo.getAno());
+            stmt.setDouble(4, veiculo.getDiaria());
+            stmt.setInt(5, veiculo.getQuilometragem());
+            stmt.setString(6, veiculo.getId());
+
 
             stmt.execute();
         }
@@ -89,4 +90,40 @@ public class VeiculoDAO implements IVeiculoDAO {
             }
         }
     }
+
+    @Override
+    public List<VeiculoDTO> findAllByPlaca() throws SQLException {
+        try (var conn = DBConnection.get();
+             var stmt = conn.createStatement();
+             var rs = stmt.executeQuery("select * from veiculos order by placa")) {
+
+            var mapper = new VeiculoMapper();
+            var veiculos = new ArrayList<VeiculoDTO>();
+
+            // Para todos os regitros vindoos do BD, converte os dados
+            // do ResultSet em DTO usando o mapper
+            while (rs.next())
+                veiculos.add(mapper.map(rs));
+
+            return veiculos;
+        }
+    }
+
+    @Override
+    public List<VeiculoDTO> findAllByModelo() throws SQLException {
+        try (var conn = DBConnection.get();
+             var stmt = conn.createStatement();
+             var rs = stmt.executeQuery("select * from veiculos order by modelo")) {
+
+            var mapper = new VeiculoMapper();
+            var veiculos = new ArrayList<VeiculoDTO>();
+
+
+            while (rs.next())
+                veiculos.add(mapper.map(rs));
+
+            return veiculos;
+        }
+    }
+
 }

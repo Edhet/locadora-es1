@@ -5,10 +5,10 @@ import com.ablhds.app.domain.*;
 import java.sql.SQLException;
 import java.util.List;
 
-public class IncluirVeiculoCtrl {
+public class CadastrarVeiculoCtrl {
     private final VeiculoRepository repo;
 
-    public IncluirVeiculoCtrl(VeiculoRepository repo) {
+    public CadastrarVeiculoCtrl(VeiculoRepository repo) {
         super();
         this.repo = repo;
     }
@@ -30,7 +30,7 @@ public class IncluirVeiculoCtrl {
 
                 if (outroVeiculo != null) {
                     return List.of(Erro.VEICULO_PLACA_DUPLICADA);
-                }
+                }//todo
 
                 repo.add(veiculo);
 

@@ -21,4 +21,7 @@ public interface IClienteDAO {
 
     ClienteDTO findByCPF(Long cpf) throws SQLException;
 
+    List<ClienteDTO> findAllByCPF() throws SQLException;
+
+    List<ClienteDTO> findAllByNome() throws SQLException;
 }

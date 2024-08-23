@@ -14,6 +14,5 @@ public record ClienteData(String cpf,
                           String uf,
                           String cep,
                           String ddd,
-                          String numeroTel) {
+                          String numeroTel) {}
 
-}

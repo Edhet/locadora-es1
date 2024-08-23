@@ -1,4 +1,8 @@
 package com.ablhds.app.usecases;
 
-public record LocacaoRequest() {
+import java.time.LocalDateTime;
+
+public record LocacaoRequest(Long cpfCliente,
+                             String placaVeiculo,
+                             LocalDateTime dataHora) {
 }

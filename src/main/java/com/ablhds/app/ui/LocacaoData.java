@@ -1,4 +1,8 @@
 package com.ablhds.app.ui;
 
-public record LocacaoData() {
+import java.time.LocalDateTime;
+
+public record LocacaoData(String cpfCliente,
+                          String placaVeiculo,
+                          LocalDateTime dataHora) {
 }

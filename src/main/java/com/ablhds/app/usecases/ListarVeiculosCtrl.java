@@ -15,11 +15,30 @@ public class ListarVeiculosCtrl {
 
     public Resultado<List<Veiculo>> recuperarTodosVeiculos() {
         try {
-            var veiculos = repo.findAll();
+            var clientes = repo.findAll();
+
+            return Resultado.ok(clientes);
+        } catch (SQLException e) {
+            return Resultado.erro(List.of(Erro.ERRO_BD));
+        }
+    }
+
+    public Resultado<List<Veiculo>> recuperarTodosVeiculosPorPlaca() {
+        try {
+            var veiculos = repo.findAllByPlaca();
 
             return Resultado.ok(veiculos);
         } catch (SQLException e) {
-            // Se ocorrer alguma exceção no BD, avisa
+            return Resultado.erro(List.of(Erro.ERRO_BD));
+        }
+    }
+
+    public Resultado<List<Veiculo>> recuperarTodosVeiculosPorModelo() {
+        try {
+            var clientes = repo.findAllByModelo();
+
+            return Resultado.ok(clientes);
+        } catch (SQLException e) {
             return Resultado.erro(List.of(Erro.ERRO_BD));
         }
     }

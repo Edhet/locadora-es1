@@ -4,9 +4,7 @@ import com.ablhds.app.domain.dao.ClienteDTO;
 import com.ablhds.app.domain.dao.IClienteDAO;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Classe que representa um repositório de clientes.
@@ -37,6 +35,33 @@ public class ClienteRepository implements Repository {
 
         return clientes;
     }
+
+    public List<Cliente> findAllByCPF() throws SQLException {
+        // Busca todos os clientes do repositório
+        var dtos = dao.findAllByCPF();
+
+        // Converte os DTOs vindo do repositório em clientes
+        var clientes = new ArrayList<Cliente>();
+
+        for (var dto : dtos)
+            clientes.add(create(dto));
+
+        return clientes;
+    }
+
+    public List<Cliente> findAllByNome() throws SQLException {
+        // Busca todos os clientes do repositório
+        var dtos = dao.findAllByNome    ();
+
+        // Converte os DTOs vindo do repositório em clientes
+        var clientes = new ArrayList<Cliente>();
+
+        for (var dto : dtos)
+            clientes.add(create(dto));
+
+        return clientes;
+    }
+
 
     /**
      * Retorna  um cliente com base no CPF
@@ -79,10 +104,11 @@ public class ClienteRepository implements Repository {
     /**
      * Remove um cliente do repositório
      *
-     * @param cliente Cliente a ser removido
+     * @param cpf Cliente a ser removido
      * @throws SQLException Exceção em caso de problemas no acesso ao BD
      */
-    public void remove(Cliente cliente) throws SQLException {
+    public void remove(Long cpf) throws SQLException {
+        Cliente cliente = findByCPF(cpf);
         // Se cliente TEM ID, então deleta do BD
         if (cliente.getId() != null) {
             dao.delete(cliente);

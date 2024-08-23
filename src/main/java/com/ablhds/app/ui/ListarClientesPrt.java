@@ -15,14 +15,34 @@ public class ListarClientesPrt implements Presenter {
     }
 
     @Override
-    public void run() {
-        var resultado = controller.recuperarTodosClientes();
+    public void run() { //todo - tratar erro de input
+        String selecao = view.readData();
 
-        if (resultado.sucesso())
-            view.mostrarClientes(resultado.valor);
-        else
-            view.mostrarErro();
+        if (selecao.equals("C")){
+            var resultado = controller.recuperarTodosClientesPorCPF();
+            if (resultado.sucesso())
+                view.mostrarClientes(resultado.valor);
+            else
+                view.mostrarErro();
+        }
+        else if (selecao.equals("N")){
+            var resultado = controller.recuperarTodosClientesPorNome();
+            if (resultado.sucesso())
+                view.mostrarClientes(resultado.valor);
+            else
+                view.mostrarErro();
+        }
+        else { // todo - acho q qnd fizer o tratamento isso vai sair
+            var resultado = controller.recuperarTodosClientes();
+            if (resultado.sucesso())
+                view.mostrarClientes(resultado.valor);
+            else
+                view.mostrarErro();
+        }
+
+
     }
+
 }
 
 

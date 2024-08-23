@@ -19,3 +19,4 @@ public record ClienteRequest(Long cpf,
                              Long numeroTel) {
 
 }
+

@@ -1,4 +1,9 @@
 package com.ablhds.app.domain.dao;
 
-public record LocacaoDTO() {
+import java.time.LocalDateTime;
+
+public record LocacaoDTO(String id,
+                         Long cpfCliente,
+                         String placaVeiculo,
+                         LocalDateTime dataHora) {
 }

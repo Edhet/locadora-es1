@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * Classe responsável por apresentar os menus da aplicação
  */
-public class MenuView {
+public class MenuView { //todo - revisar (ver se tem algo pra implementar a mais aqui)
 
     public enum Opcao {
         CADASTRAR_CLIENTE,

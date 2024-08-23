@@ -1,7 +1,6 @@
 package com.ablhds.app.usecases;
 
-public record VeiculoRequest(String id,
-                             String placa,
+public record VeiculoRequest(String placa,
                              String modelo,
                              Integer ano,
                              Double diaria,

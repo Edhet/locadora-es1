@@ -14,7 +14,6 @@ CREATE TABLE clientes (
 	telefone 	integer 		NOT NULL
 );
 
--- TODO: Criar veículo e locação
 CREATE TABLE veiculo (
     id varchar (36) PRIMARY KEY,
     placa varchar(7) NOT NULL UNIQUE,
@@ -26,9 +25,11 @@ CREATE TABLE veiculo (
 
 CREATE TABLE locacao(
     id varchar (36) PRIMARY KEY,
-    cpf long NOT NULL UNIQUE,
-    nome varchar (80) NOT NULL,
-    placa varchar(7) NOT NULL UNIQUE ,
-    modelo varchar(30) NOT NULL,
-    data_hora datetime NOT NULL
+    cpf_cliente long NOT NULL UNIQUE ,
+    placa_veiculo varchar(7) NOT NULL UNIQUE,
+    data_hora  datetime NOT NULL,
+    CONSTRAINT fk_locacao_cliente
+        FOREIGN KEY (cpf_cliente) REFERENCES clientes(cpf),
+    CONSTRAINT fk_locacao_veiculo
+        FOREIGN KEY (placa_veiculo) REFERENCES veiculo(placa)
 );

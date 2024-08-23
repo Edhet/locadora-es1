@@ -7,21 +7,19 @@ import java.util.List;
 public class Veiculo extends Persistent {
     private Placa placa;
     private String modelo;
-    private String cor;
     private int ano;
     private double diaria;
     private int quilometragem;
 
-    public Veiculo(Placa placa, String modelo, String cor, int ano, double diaria, int quilometragem) {
+    public Veiculo(Placa placa, String modelo, int ano, double diaria, int quilometragem) {
         this.placa = placa;
         this.modelo = modelo;
-        this.cor = cor;
         this.ano = ano;
         this.diaria = diaria;
         this.quilometragem = quilometragem;
     }
 
-    public static Resultado<Veiculo> create(String placa, String modelo, String cor, int ano, double diaria, int quilometragem) {
+    public static Resultado<Veiculo> create(String placa, String modelo, int ano, double diaria, int quilometragem) {
         List<Erro> erros = new ArrayList<>();
 
         Placa placaEntity = Placa.create(placa);
@@ -43,7 +41,7 @@ public class Veiculo extends Persistent {
 
         // TODO: Checar por veículos com mesma placa
 
-        return erros.isEmpty() ? Resultado.ok(new Veiculo(placaEntity, modelo, cor, ano, diaria, quilometragem)) : Resultado.erro(erros);
+        return erros.isEmpty() ? Resultado.ok(new Veiculo(placaEntity, modelo, ano, diaria, quilometragem)) : Resultado.erro(erros);
     }
 
     public Placa getPlaca() {
@@ -60,14 +58,6 @@ public class Veiculo extends Persistent {
 
     public void setModelo(String modelo) {
         this.modelo = modelo;
-    }
-
-    public String getCor() {
-        return cor;
-    }
-
-    public void setCor(String cor) {
-        this.cor = cor;
     }
 
     public int getAno() {

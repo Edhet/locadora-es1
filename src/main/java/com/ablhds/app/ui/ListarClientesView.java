@@ -5,11 +5,27 @@ import com.ablhds.app.domain.Cliente;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class ListarClientesView {
+    public String readData() {
+        var input = new Scanner(System.in);
+        String selecao;
 
-    public void mostrarClientes(List<Cliente> clientes) {
+        System.out.println("\n--------------------");
+        System.out.println("Listar Clientes");
+        System.out.println("--------------------");
+
+        System.out.print("Ordenação Desejada");
+        System.out.print("CPF: C");
+        System.out.print("Nome: N");
+        selecao = input.nextLine();
+
+        return selecao;
+    }
+
+        public void mostrarClientes(List<Cliente> clientes) {
 
         if (clientes.isEmpty())
             System.out.println("\nNão há clientes cadastrados");

@@ -1,9 +1,8 @@
 package com.ablhds.app.ui;
 
-public record VeiculoData(String id,
-                          String placa,
+public record VeiculoData(String placa,
                           String modelo,
-                          Integer ano,
-                          Double diaria,
-                          Integer quilometragem) {
+                          String ano,
+                          String diaria,
+                          String quilometragem) {
 }

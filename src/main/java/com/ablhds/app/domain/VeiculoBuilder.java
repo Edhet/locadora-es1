@@ -3,7 +3,6 @@ package com.ablhds.app.domain;
 public class VeiculoBuilder {
     private String placa;
     private String modelo;
-    private String cor;
     private int ano;
     private double diaria;
     private int quilometragem;
@@ -21,10 +20,6 @@ public class VeiculoBuilder {
         return this;
     }
 
-    public VeiculoBuilder withCor(String cor) {
-        this.cor = cor;
-        return this;
-    }
 
     public VeiculoBuilder withAno(int ano) {
         this.ano = ano;
@@ -42,6 +37,6 @@ public class VeiculoBuilder {
     }
 
     public Resultado<Veiculo> build() {
-        return Veiculo.create(this.placa, this.modelo, this.cor, this.ano, this.diaria, this.quilometragem);
+        return Veiculo.create(this.placa, this.modelo, this.ano, this.diaria, this.quilometragem);
     }
 }

@@ -1,6 +1,5 @@
 package com.ablhds.app.domain;
 
-import com.ablhds.app.domain.dao.ClienteDTO;
 import com.ablhds.app.domain.dao.IVeiculoDAO;
 import com.ablhds.app.domain.dao.VeiculoDTO;
 
@@ -36,6 +35,32 @@ public class VeiculoRepository implements Repository {
         return null;
     }
 
+    public List<Veiculo> findAllByPlaca() throws SQLException {
+        // Busca todos os clientes do repositório
+        var dtos = dao.findAllByPlaca();
+
+        // Converte os DTOs vindo do repositório em clientes
+        var veiculos = new ArrayList<Veiculo>();
+
+        for (var dto : dtos)
+            veiculos.add(create(dto));
+
+        return veiculos;
+    }
+
+    public List<Veiculo> findAllByModelo() throws SQLException {
+        // Busca todos os clientes do repositório
+        var dtos = dao.findAllByModelo();
+
+        // Converte os DTOs vindo do repositório em clientes
+        var veiculos = new ArrayList<Veiculo>();
+
+        for (var dto : dtos)
+            veiculos.add(create(dto));
+
+        return veiculos;
+    }
+
     public void add(Veiculo veiculo) throws SQLException {
         if (veiculo.getId() == null) {
             veiculo.setId(UUID.randomUUID().toString());
@@ -44,7 +69,8 @@ public class VeiculoRepository implements Repository {
             dao.update(veiculo);
     }
 
-    public void remove(Veiculo veiculo) throws SQLException {
+    public void remove(String placa) throws SQLException {
+        Veiculo veiculo = findByPlaca(placa);
         if (veiculo.getId() != null) {
             dao.delete(veiculo);
 
@@ -52,14 +78,7 @@ public class VeiculoRepository implements Repository {
         }
     }
 
-    /**
-     * Cria um cliente a partir do ClienteDTO
-     *
-     * @param dto Dados do cliente vindos do BD
-     * @return Cliente
-     */
     private Veiculo create(VeiculoDTO dto) {
-        // Usa o builder para construir o cliente com os dados vindos do BD
         var resultado = new VeiculoBuilder()
                 .withPlaca(dto.placa())
                 .withModelo(dto.modelo())
@@ -68,11 +87,8 @@ public class VeiculoRepository implements Repository {
                 .withQuilometragem(dto.quilometragem())
                 .build();
 
-        // Assume que a criação foi bem sucedida,
-        // pois os dados do BD devem estar consistentes
         var veiculo = resultado.valor;
 
-        // Seta o ID do objeto, pois ele veio do BD
         veiculo.setId(dto.id());
 
         return veiculo;
