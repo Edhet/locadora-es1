@@ -51,7 +51,7 @@ public class ClienteRepository implements Repository {
 
     public List<Cliente> findAllByNome() throws SQLException {
         // Busca todos os clientes do repositório
-        var dtos = dao.findAllByNome    ();
+        var dtos = dao.findAllByNome();
 
         // Converte os DTOs vindo do repositório em clientes
         var clientes = new ArrayList<Cliente>();

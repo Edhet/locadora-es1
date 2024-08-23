@@ -17,9 +17,9 @@ public class ListarClientesView {
         System.out.println("Listar Clientes");
         System.out.println("--------------------");
 
-        System.out.print("Ordenação Desejada");
-        System.out.print("CPF: C");
-        System.out.print("Nome: N");
+        System.out.println("Ordenação Desejada");
+        System.out.println("CPF: C");
+        System.out.println("Nome: N");
         selecao = input.nextLine();
 
         return selecao;
