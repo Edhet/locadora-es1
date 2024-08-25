@@ -21,8 +21,10 @@ public class Locacao extends Persistent{
     public Locacao(CPF cpfCliente, String nomeCliente, Placa placaVeiculo, String modeloVeiculo, LocalDateTime dataHora) {
         super();
         this.cpfCliente = cpfCliente;
+        this.nomeCliente = nomeCliente;
         this.placaVeiculo = placaVeiculo;
         this.dataHora = dataHora;
+        this.modeloVeiculo = modeloVeiculo;
     }
 
     public static Resultado<Locacao> create(Long cpfCliente, String placaVeiculo, LocalDateTime data_hora) {
@@ -63,7 +65,6 @@ public class Locacao extends Persistent{
         if (dataHora == null) {
             erros.add(Erro.DATA_INVALIDA);
         }
-
 
         return erros.isEmpty() ? Resultado.ok(new Locacao(cpfEntity, nomeCliente, placaEntity, modeloVeiculo, dataHora)) : Resultado.erro(erros);
     }
