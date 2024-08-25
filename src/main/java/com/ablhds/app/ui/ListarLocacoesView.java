@@ -13,10 +13,11 @@ public class ListarLocacoesView {
         if (locacoes.isEmpty())
             System.out.println("\nNão há locações cadastradas");
         else {
-            System.out.println("\n--------------------------------------------------------------------------------");
-            System.out.println("CPF            Nome                Placa    Modelo                 Data/hora");
+            System.out.println("\n--------------------------------------------------------------------------------------------------------------------------");
+
+            System.out.println("CPF            Nome                           Placa   Modelo                         Data/hora");
             //                  999.999.999-99 xx_30_caracteres_xx AAA-9999 xx_30_caracteres_xx 99/99/9999 99:99
-            System.out.println("--------------------------------------------------------------------------------");
+            System.out.println("--------------------------------------------------------------------------------------------------------------------------");
 
             for (var l : locacoes) {
                 System.out.printf("%s %-30s %s %-30s %s\n",
@@ -41,8 +42,6 @@ public class ListarLocacoesView {
 
     private String formataData(LocalDateTime dt) {
         var df = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-
         return df.format(dt);
     }
-
 }

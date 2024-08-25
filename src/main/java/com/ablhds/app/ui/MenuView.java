@@ -15,21 +15,16 @@ public class MenuView { //todo - revisar (ver se tem algo pra implementar a mais
         EXCLUIR_VEICULO,
         LISTAR_VEICULO,
         LOCAR_VEICULO,
-        DEVOLVER_VEICULO,
         LISTAR_LOCACAO,
         FIM
-    }
-
-    ;
+    };
 
     private enum TipoMenu {
         PRINCIPAL,
         CLIENTE,
         VEICULO,
         LOCACAO
-    }
-
-    ;
+    };
 
     private TipoMenu menu = TipoMenu.PRINCIPAL;
 
@@ -76,12 +71,10 @@ public class MenuView { //todo - revisar (ver se tem algo pra implementar a mais
                 case 31:
                     return Opcao.LOCAR_VEICULO;
                 case 32:
-                    return Opcao.DEVOLVER_VEICULO;
-                case 33:
                     return Opcao.LISTAR_LOCACAO;
                 case 14:
                 case 24:
-                case 34:
+                case 33:
                     menu = TipoMenu.PRINCIPAL;
                     break;
             }
@@ -152,12 +145,11 @@ public class MenuView { //todo - revisar (ver se tem algo pra implementar a mais
         System.out.println("Menu de Locação");
         System.out.println("------------------");
         System.out.println("1-Locar veículo");
-        System.out.println("2-Devolver veículo");
-        System.out.println("3-Listar locações");
-        System.out.println("4-Voltar");
+        System.out.println("2-Listar locações");
+        System.out.println("3-Voltar");
         System.out.print("Opção: ");
 
-        return 30 + lerOpcao(1, 4);
+        return 30 + lerOpcao(1, 3);
     }
 
     /**

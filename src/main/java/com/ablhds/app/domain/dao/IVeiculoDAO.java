@@ -1,5 +1,6 @@
 package com.ablhds.app.domain.dao;
 
+import com.ablhds.app.domain.Placa;
 import com.ablhds.app.domain.Veiculo;
 
 import java.sql.SQLException;
@@ -11,7 +12,7 @@ public interface IVeiculoDAO {
 
     void update(Veiculo veiculo) throws SQLException;
 
-    void delete(Veiculo veiculo) throws SQLException;
+    void delete(Placa placa) throws SQLException;
 
     List<VeiculoDTO> findAll() throws SQLException;
 

@@ -36,6 +36,7 @@ public class LocarVeiculoView {
                 case VEICULO_INEXISTENTE -> System.out.println("- Placa inválida!");
                 case ERRO_BD ->
                         System.out.println("- Erro inesperado. Tente novamente mais tarde ou procure o suporte.");
+                default -> System.out.println("- Erro inesperado. Tente novamente: " + erro.toString());
             }
         }
         System.out.println();

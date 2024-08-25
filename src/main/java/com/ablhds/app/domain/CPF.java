@@ -89,4 +89,8 @@ public class CPF {
         return k == segundoDV;
     }
 
+    @Override
+    public String toString() {
+        return valor.toString();
+    }
 }

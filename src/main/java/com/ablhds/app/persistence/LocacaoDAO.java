@@ -59,7 +59,7 @@ public class LocacaoDAO implements ILocacaoDAO {
         try (var conn = DBConnection.get();
              var stmt = conn.createStatement();
              var rs = stmt.executeQuery("""
-                 SELECT c.cpf, c.nome, v.placa, v.modelo, l.data_hora
+                 SELECT l.id, c.cpf, c.nome, v.placa, v.modelo, l.data_hora
                  FROM locacao l
                  JOIN clientes c ON l.cpf_cliente = c.cpf
                  JOIN veiculo v ON l.placa_veiculo = v.placa

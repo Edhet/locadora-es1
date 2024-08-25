@@ -15,7 +15,12 @@ public class Placa {
     }
 
     private static boolean placaTemFormatoValido(String str){
-        Pattern formatoPlaca = Pattern.compile("\\A[A-Za-z]{3}\\d{4}\\z");
+        Pattern formatoPlaca = Pattern.compile("[]A-Za-z]{3}\\d{4}");
         return formatoPlaca.matcher(str).matches();
+    }
+
+    @Override
+    public String toString() {
+        return placa;
     }
 }

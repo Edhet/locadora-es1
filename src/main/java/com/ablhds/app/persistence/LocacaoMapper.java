@@ -14,10 +14,10 @@ public class LocacaoMapper {
         var df = DateTimeFormatter.ofPattern("ddMMyyyyHHmm", Locale.getDefault());
 
         return new ListagemLocacaoValoresDTO(rs.getString("id"),
-                rs.getLong("cpfCliente"),
-                rs.getString("nomeCliente"),
-                rs.getString("placaVeiculo"),
-                rs.getString("modeloVeiculo"),
-                LocalDateTime.from(df.parse(rs.getString("dataHora"))));
+                rs.getLong("cpf"),
+                rs.getString("nome"),
+                rs.getString("placa"),
+                rs.getString("modelo"),
+                LocalDateTime.from(df.parse(rs.getString("data_hora"))));
     }
 }

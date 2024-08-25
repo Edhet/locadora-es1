@@ -14,23 +14,11 @@ public class ExclusaoVeiculoCtrl {
     }
     public List<Erro> excluirVeiculo(PlacaVeiculoRequest request) {
         try {
-            var resultado = new VeiculoBuilder()
-                    .withPlaca(request.placa())
-                    .build();
+            var placa = Placa.create(request.placa());
+            if (placa != null)
+                repo.remove(placa.toString());
 
-            if (resultado.sucesso()) {
-                var veiculo = resultado.valor;
-
-                if (veiculo.getId() == null) {
-                    return List.of(Erro.VEICULO_INEXISTENTE);
-                }
-
-                repo.remove(veiculo.getPlaca().placa);
-
-                return null;
-            } else {
-                return resultado.erros;
-            }
+            return null;
         } catch (SQLException e) {
             return List.of(Erro.ERRO_BD);
         }

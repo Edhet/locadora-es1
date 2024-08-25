@@ -72,8 +72,7 @@ public class VeiculoRepository implements Repository {
     public void remove(String placa) throws SQLException {
         Veiculo veiculo = findByPlaca(placa);
         if (veiculo.getId() != null) {
-            dao.delete(veiculo);
-
+            dao.delete(Placa.create(placa));
             veiculo.setId(null);
         }
     }

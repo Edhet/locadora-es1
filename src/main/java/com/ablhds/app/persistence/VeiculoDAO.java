@@ -1,5 +1,6 @@
 package com.ablhds.app.persistence;
 
+import com.ablhds.app.domain.Placa;
 import com.ablhds.app.domain.Veiculo;
 import com.ablhds.app.domain.dao.VeiculoDTO;
 import com.ablhds.app.domain.dao.IVeiculoDAO;
@@ -44,11 +45,11 @@ public class VeiculoDAO implements IVeiculoDAO {
     }
 
     @Override
-    public void delete(Veiculo veiculo) throws SQLException {
+    public void delete(Placa placa) throws SQLException {
         try (var conn = DBConnection.get();
-             var stmt = conn.prepareStatement("delete from veiculo where id=?")) {
+             var stmt = conn.prepareStatement("delete from veiculo where veiculo.placa=?")) {
 
-            stmt.setString(1, veiculo.getId());
+            stmt.setString(1, placa.toString());
 
             stmt.execute();
         }

@@ -38,7 +38,7 @@ public class Locacao extends Persistent{
         if (placaEntity == null)
             erros.add(Erro.VEICULO_PLACA_INVALIDA);
 
-        if (data_hora == null || data_hora.isBefore(LocalDateTime.now())) {
+        if (data_hora == null) {
             erros.add(Erro.DATA_INVALIDA);
         }
 
@@ -53,13 +53,14 @@ public class Locacao extends Persistent{
         Placa placaEntity = Placa.create(placaVeiculo);
 
         //todo - acho q está errada a verificação
+        // estava mesmo bobão..
         if (cpfEntity == null){
             erros.add(Erro.CPF_INVALIDO);
         }
         if (placaEntity == null)
             erros.add(Erro.VEICULO_PLACA_INVALIDA);
 
-        if (dataHora == null || dataHora.isBefore(LocalDateTime.now())) {
+        if (dataHora == null) {
             erros.add(Erro.DATA_INVALIDA);
         }
 

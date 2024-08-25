@@ -17,9 +17,9 @@ public class ListarVeiculosView {
         System.out.println("Listar Veículos");
         System.out.println("--------------------");
 
-        System.out.print("Ordenação Desejada");
-        System.out.print("Placa: P");
-        System.out.print("Modelo: M");
+        System.out.println("Ordenação Desejada");
+        System.out.println("Placa: P");
+        System.out.println("Modelo: M");
         selecao = input.nextLine();
 
         return selecao;
